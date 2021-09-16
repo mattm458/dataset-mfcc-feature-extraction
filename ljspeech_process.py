@@ -5,6 +5,7 @@ import os
 os.environ["OPENBLAS_NUM_THREADS"] = "1"
 os.environ["MKL_NUM_THREADS"] = "1"
 
+import csv
 import json
 from multiprocessing import Pool
 
@@ -56,6 +57,7 @@ if __name__ == "__main__":
         delimiter="|",
         header=None,
         names=["id", "raw", "normalized"],
+        quoting=csv.QUOTE_NONE,
     )
 
     with Pool(NUM_PROC) as pool:
